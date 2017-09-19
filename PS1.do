@@ -4,7 +4,10 @@
 * Data Management
 *----------------------------
 
-Clear
+//good i like the preamble
+
+
+clear //no! needs to be lowercase
 
 /* Working Directory */
 
@@ -12,15 +15,20 @@ cd "C:\Users\socha\Dropbox"
 
 /* Loading in first year of data 2008 */
 /* NCES LEA Universe file- tudent/teacher numbers/totals */
+//not necessarily already now, but at some point would be useful to say in a pargapah or so
+//why these data and what you're trying to accomplish here, kind of like an abstract of a paper:)
 
 import delimited using "https://www.dropbox.com/s/bkmpx4f4ylz11he/Lea_01.txt?dl=1"
 
 /* Keeping only New Jerey datapoints */
 
+//good! good to narrow down, focus in!
+
 keep if lstate08=="NJ"
 
 /* Drop unneeded Variables */
 
+//same ting here!
 drop fipst phone08 mstree08 mcity08 mstate08 mzip08 mzip408 lstree08 lcity08 lstate08 lzip08 lzip408 union08 conum08 coname08 csa08 cbsa08 metmic08 cdcode08 latcod08 loncod08 bound08 gslo08 gshi08
 
 /* Relabeling Variables */
@@ -31,6 +39,10 @@ label variable name08 "Name of the education agency"
 label variable type08 "Agency type code"
 label variable ulocal08 "NCES urban-centric locale code"
 label variable sch08 "Aggregate number of schools associated with this agency in the CCD school universe file"
+//yeah "note: label truncated to 80 characters" var labels should be concise! you can use note command
+//to add more elaborate note--we will talk about this in detail in c3_organize.do
+
+
 label variable ug08 "Total number of students in classes or programs without standard grade designations"
 label variable pk1208 "Total number of students in classes from prekindergarten through 12th grade that are part of the public school program"
 label variable member08 "Calculated total student membership of the local education agency: the sum of the fields UG and PK12"
@@ -61,9 +73,10 @@ label variable othsup08 "Student support services staff. Full-time equivalency r
 
 * Total Students are important for future analyses 
 
-hist member08
+hist member08  //yes! love it! use graphs!
 
 * Most districts fall within 0 to couple thousand students; few outliers over 10k, with a few between 20-40k (cities) 
+//and awesome to put in some substantive comments
 
 * Total number of teachers are important for future analyses 
 
@@ -82,11 +95,12 @@ scatter (member08 tottch08)
 
 * Stata file
 
-save Lea_01.dta
+save Lea_01.dta, replace //always add replace--otherwhise it breaks on send run!! and same below
 
 * Raw File
 
-outfile using Lea_01
+outfile using Lea_01 //hmm, but what kind of raw file...csv or fixed or what..could elaborate a bit especially
+//that such format is quite exotic!
 
 * SPSS File
 
