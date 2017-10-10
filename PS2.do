@@ -6,6 +6,10 @@
 
 /* This PS will be for the 2008 school year. It is a part of a larger range that will be used but vrious  years for different files need different cleaning and manipulation done to them. */
 
+//this chunk here wont fly becasue thereis no data; ok realized its from ps1--so then should say sth like!!
+// do ps1dofile.do
+//and even then dont have codes dataset
+
 clear all
 
 cd "C:\Users\socha\Dropbox\NewJersey_District"
@@ -50,7 +54,7 @@ drop obs co coname distname account amt2 amt3
 
 /* keep Line items to contain all individual districts and also adjust aid 8 */
 
-keep if inlist(line, 260, 368)
+keep if inlist(line, 260, 368) //great inllist is a great command!
 
 /* Reshape to have adjustment aid own variable */
 
@@ -74,8 +78,11 @@ sort dist
 
 **Save Final File
 
+//as per 1st class: just cd once cd "C:\Users\socha\Dropbox\NewJersey_District"
+//and then dont have use paths anymore :) 
 save "C:\Users\socha\Dropbox\NewJersey_District\fy_1.dta", replace
 
+//so again, dont have data so cannot grade the rest! :(
 
 /* Merging of two previous files */
 
@@ -83,7 +90,7 @@ clear all
 
 cd "C:\Users\socha\Dropbox\NewJersey_District"
 
-use Lea_merge01
+use Lea_merge01 //dont have this file so cannot run it
 
 sort dist
 
