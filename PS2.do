@@ -14,7 +14,7 @@ clear all
 
 cd "C:\Users\socha\Dropbox\NewJersey_District"
 
-use codes
+use "https://www.dropbox.com/s/hf5zo7n5yhpufid/codes.dta?dl=1"
 
 sort leaid
 
@@ -22,7 +22,7 @@ sort leaid
 
 drop if leaid==.
 
-merge 1:1 leaid using Lea_01
+merge 1:1 leaid using "https://www.dropbox.com/s/4z5cf1r7u3segyk/Lea_01.dta?dl=1"
 
 /* Drop those which will not appear in all years */
 
@@ -43,8 +43,6 @@ save Lea_merge01, replace
 /* This file has a specific variable of adjustment aid being looked at as part of a public school funding/expenditure study. */
 
 clear all
-
-cd "C:\Users\socha\Dropbox\NewJersey_District"
 
 import delimited "https://www.dropbox.com/s/3yk56gkx4bgtf9b/rev_2010.CSV?dl=1"
 
@@ -80,15 +78,13 @@ sort dist
 
 //as per 1st class: just cd once cd "C:\Users\socha\Dropbox\NewJersey_District"
 //and then dont have use paths anymore :) 
-save "C:\Users\socha\Dropbox\NewJersey_District\fy_1.dta", replace
+save fy_1.dta, replace
 
 //so again, dont have data so cannot grade the rest! :(
 
 /* Merging of two previous files */
 
 clear all
-
-cd "C:\Users\socha\Dropbox\NewJersey_District"
 
 use Lea_merge01 //dont have this file so cannot run it
 
