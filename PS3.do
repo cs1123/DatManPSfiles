@@ -3,6 +3,16 @@
 * October 2017
 * Data Management
 *----------------------------
+/*
+was great to see you guys at software carpentry! feel free now to add in some python code--eg do most stuff in stata
+but also can add some work on your data in python!
+
+again, i'd also consider (only if useful for you!) to use some school district level data; eg googling
+'school district data' yields: 'https://www.google.com/search?q=school+district+data&ie=utf-8&oe=utf-8'
+and may check out icpsr data maybe esspecially search by variable name/label to find what you need!
+https://www.icpsr.umich.edu/icpsrweb/content/RCMD/tools/ssvd.html
+*/
+
 
 /* Previous Items */
 
