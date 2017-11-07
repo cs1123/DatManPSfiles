@@ -13,6 +13,7 @@ and may check out icpsr data maybe esspecially search by variable name/label to 
 https://www.icpsr.umich.edu/icpsrweb/content/RCMD/tools/ssvd.html
 */
 
+//looking forward to descriptive stats!
 
 /* Previous Items */
 
@@ -46,7 +47,7 @@ do PS2_Update
 /* CSV file of general district 4th Grade testing data for school year 2008-2009 */
 
 
-import delimited "https://www.dropbox.com/s/5yeavnnrmilpi0n/test08.csv?dl=1"
+import delimited "https://www.dropbox.com/s/5yeavnnrmilpi0n/test08.csv?dl=1", clear  //otherwhiste it would break!
 
 /* Versus prior sets, district variable in these is a string- need to change */
 
@@ -58,7 +59,7 @@ sort dist
 
 /* Removing Charter schools as they are not a part of the study */
 
-drop if substr(cntyname, 1, 2) == "CH" 
+drop if substr(cntyname, 1, 2) == "CH" //but this is county name not school
 
 /* Destring of school id variable */
 
