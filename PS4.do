@@ -101,12 +101,12 @@ import delimited using "https://www.dropbox.com/s/fucaq4g3gbm4nlg/Lea_04.txt?dl=
 keep if lstate=="NJ"
 
 /* Save file; since appending with others, will append and do dropping/labelling at that point once combined */
-
+//no need to repeat same cinnebt over and over again
 save Lea_04.dta, replace
 
 
 /* Loading in 5th year of data 2012 */
-
+//could make it much more concise--these comments dont seem helpful
 /* NCES LEA Universe file- student/teacher numbers/totals */
 
 import delimited using "https://www.dropbox.com/s/4p0vifbyabe7egl/Lea_05.txt?dl=1", clear
@@ -137,9 +137,10 @@ save Lea_06.dta, replace
 
 // Appending LEA Universe Files
 
-use LEA_01, clear
+//this shouldnt break!
+use Lea_01, clear
 foreach num of numlist 2/6 {
-append using LEA_0`num', force
+append using Lea_0`num', force
 }
                               
 /* Drop unneeded Variables */
@@ -179,7 +180,7 @@ label variable schadm "School administrators. FTE nearest 10th"
 label variable schsup "School administrative support staff. FTE nearest 10th"
 label variable stusup "Student support services staff. FTE nearest 10th"
 label variable othsup "Student support services staff. FTE nearest 10th"
-
+//good
 
 save LEA_combined, replace
 
@@ -794,7 +795,7 @@ drop sch
 gen teachratio= member/tottch
 
 // student: instructional aides
-
+//could be more efficient--just make these commentys into var labels!!!
 gen aidsratio= member/aides
 
 // student: instructionall supervisors
@@ -865,3 +866,6 @@ bysort survyear adjdummy : egen MMath=mean(totalscalemath)
 
 
 save allcombined, replace
+
+//a lot of code! great!! now the fun part! lookinhg forward to some descriptibe stats
+//and especially regressions!
