@@ -8,8 +8,15 @@
 
 ***    PS6-- Will be similar to this but with updated/more efficient coding
 
+//ok good thanks for heads up!
 
-/* Based on previous work, made more sense to bring together years of data versus prior ps files of just one year. Now working with NJ state financial data for years of 2008-2013; coincide with available data for adjustment aid under new funding formula. */
+//again, as discussed in last class i'd add some census data:
+//possibly merge on sch district level
+//https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t
+
+
+/* Based on previous work, made more sense to bring together years of data versus prior ps files of just one year. 
+Now working with NJ state financial data for years of 2008-2013; coincide with available data for adjustment aid under new funding formula. */
 
 clear all
 
@@ -47,6 +54,11 @@ keep if lstate=="NJ"
 
 save Lea_01.dta, replace
 
+//chad, sure, fine to comment as much as you like, but looks like you are one of 
+//the very few people who over-comment; do not comment if it is not useful for you 
+
+//though, of course fine, if it helps, it's totally fine!
+//just dont want you to do extra unnecessary work
 
 
 /* Loading in 2nd year of data 2009 */
@@ -142,9 +154,9 @@ save Lea_06.dta, replace
 
 // Appending LEA Universe Files
 
-use LEA_01, clear
+use Lea_01, clear  //breaks here!!!!!
 foreach num of numlist 2/6 {
-append using LEA_0`num', force
+append using Lea_0`num', force
 }
                               
 /* Drop unneeded Variables */
@@ -160,7 +172,7 @@ label variable type "Agency type"
 label variable ulocal "NCES urban-centric locale code"
 label variable sch "Aggregate number of schools in agency in  CCD universe file"
 label variable ug "Total number of students in classes/programs without grade designations"
-label variable pk12 "Total number of students in classes from prek - 12th  that are public school"
+label variable pk12 "Total number of students in classes from prek - 12th  that are public school"  
 label variable member "Total - sum of the fields UG and PK12"
 label variable speced "Count of all students having a (IEP)"
 label variable ell "The number of (ELL) students"
@@ -884,6 +896,10 @@ save allcombined, replace
 ********************************************************************************************************************************************************
 ********************************************************************************************************************************************************
 
+//great , can do even more descriptive stats, and possibly start writing a paper!
+//i'd put the results into paper, and add literature etc and other parts, and start
+//drafting now as data are hot in your mind; you can finish later but have draft now
+//remember : publish or perish!
 
 /* Now have a dataset which includes LEA variables (items pertaining to student:teacher ratios, admin ratios, and similar staff statistics, adjustment aid for those recieiving extra aid (as aid is based on a formula for different student classifications, and 4th grade test score data.
 
