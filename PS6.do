@@ -730,6 +730,8 @@ graph save `var', replace
 
 graph combine teachratio.gph aidsratio.gph guideratio.gph mediaratio.gph adminratio.gph schadminratio.gph
 
+graph save combinedgr, replace
+
 // The teacher ratios seem fairly consistent both across aid type and years. With aid, other faculty, and admin ratios we see a greater variation as well as an increased amount of student to faculty ratios for an increasing number of non-adjustment aid schools (perhaps due to lower funding levels.
 
 //  Looking at the scatterplots to see a general range of scores for adjustment aid and non adjustment aid districts.
@@ -790,6 +792,11 @@ outreg2 using general.xls, append  `replace'
 local replace
 }
 
+foreach yvar in totalscalelang totalscalemath {
+reg `yvar' survyear $r1 $r2 $staff, 
+outreg2 using general.xls, append  `replace'
+local replace
+}
 // on the 2nd and third loops on the output i am getting 2 outputs of totalscalelang with the regression models. its easy enough to delete, but is there a way to not get that?
 
 
@@ -811,3 +818,4 @@ reg `yvar' $r1 $r2 $staff codummy1-codummy20,
 /* Accounting for location brings down the strenghth/weight of the adjustment aid dummy- it is now a 3.5 point difference on the math test scores and 2.0 on the english test scores.
 
 There is a mix of county dummies having statistical significance. Looking more into the secific counties and why this may/may not be happening and any possible trends for which counties this is will require further reseearch. 
+
